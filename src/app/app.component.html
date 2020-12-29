@@ -1,0 +1,31 @@
+<div class="container mt-5">
+
+  <nav class="row navbar justify-content-between">
+    <div class="col-3"><h2><span class="badge badge-info navbar-brand">Book Finder</span></h2></div>
+    <div class="col-8 search">
+        <input class="form-control col-5" type="search" placeholder="Search" [(ngModel)]="search" aria-label="Search">
+        <button type="button" class="btn btn-secondary ml-3" (click)="searchBooks()">Search</button>
+</div>  
+    </nav>
+
+
+  <div class="container mt-5">
+    <div class="row justify-content-around">
+      <div class="col-4 mb-2" style="height:400px" *ngFor="let i of data" >
+    <div class="card p-4 text-center" style="height:100%">
+      <img class="card-img-top" src='{{i.volumeInfo.imageLinks.smallThumbnail}}' height="210px" alt="Card image cap">
+      <div class="card-body col-12">
+        <h6 class="card-title">Card title{{i.volumeInfo.title}}</h6>
+        <p><span class="card-text">Authors: {{i.volumeInfo.authors}}</span></p>
+        <a href="{{i.selfLink}}"><button type="button" class="btn btn-secondary ml-3">Book Info</button></a>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+<router-outlet></router-outlet>
